@@ -1,0 +1,51 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.5)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    concurrent-ruby (1.1.5)
+    ffi (1.10.0)
+    ffi-aspell (1.1.0)
+      ffi
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
+    json (1.8.6)
+    kramdown (1.17.0)
+    mdspell (0.2.0)
+      ffi-aspell (~> 1.1)
+      kramdown (~> 1.8)
+      mixlib-cli (~> 1.5)
+      mixlib-config (~> 2.2)
+      rainbow (~> 2.0)
+    minitest (5.11.3)
+    mixlib-cli (1.7.0)
+    mixlib-config (2.2.18)
+      tomlrb
+    publication (0.0.10)
+      activesupport (= 4.2.5)
+      mdspell (= 0.2.0)
+      rake (= 10.4.2)
+      ruby-pandoc (>= 0.0.5)
+      thor (>= 0.19.1)
+    rainbow (2.2.2)
+      rake
+    rake (10.4.2)
+    ruby-pandoc (0.0.5)
+    thor (0.20.3)
+    thread_safe (0.3.6)
+    tomlrb (1.2.8)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  publication
+
+BUNDLED WITH
+   2.0.1
