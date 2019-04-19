@@ -1,33 +1,48 @@
+# frozen_string_literal: true
+
 require 'rake/testtask'
 
-DOCKER_DIR='docker'
+DOCKER_DIR = 'docker'
 
 Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.test_files = FileList['test/**/*_test.rb'].exclude()
+  t.libs << 'test'
+  t.test_files = FileList['test/**/*_test.rb'].exclude
   t.verbose = true
 end
 
 namespace :report do
-
   desc 'Create doc to publish'
   task :init do
-    puts `touch docs.md`
-    puts `wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-linux.tar.gz`
-    puts `wget https://github.com/owickstrom/pandoc-include-code/releases/download/v1.2.0.2/pandoc-include-code-linux-ghc8-pandoc-1-19.tar.gz`
-    puts `tar -xvpf pandoc-2.7.2-linux.tar.gz`
-    puts `tar -xvpf pandoc-include-code-linux-ghc8-pandoc-1-19.tar.gz`
-    puts `mkdir -p .bin`
-    puts `mv pandoc-2.7.2/bin/pandoc .bin/pandoc`
-    puts `mv ./pandoc-include-code .bin/`
-    puts `rm *.tar.gz`
-    puts `rm -rf pandoc-2.7.2`
+    puts `mkdir -p docs output .bin`
+    puts `[ ! -f .bin/pandoc ] && wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-linux.tar.gz && tar -xvpf pandoc-2.7.2-linux.tar.gz && mv pandoc-2.7.2/bin/pandoc .bin/ && mv pandoc-2.7.2/bin/pandoc-citeproc .bin/ && rm -rf pandoc-2.7.2 && rm -f *.tar.gz*`
+    puts `[ ! -f .bin/pandoc-include-code ] && wget https://github.com/owickstrom/pandoc-include-code/releases/download/v1.2.0.2/pandoc-include-code-linux-ghc8-pandoc-1-19.tar.gz && tar -xvpf pandoc-include-code-linux-ghc8-pandoc-1-19.tar.gz && mv ./pandoc-include-code .bin/ && rm -f *.tar.gz*`
   end
 
   desc 'Publish the documents with pandoc'
   task :publish do
-    ['html', 'pdf', 'epub' ].each do |doctype|
-      puts `.bin/pandoc doc.md --toc --filter .bin/pandoc-include-code -s --highlight-style espresso  -o doc.#{doctype}`
+    %w[html pdf epub].each do |doctype|
+      puts `.bin/pandoc docs/*.md --toc \
+            --top-level-division=chapter \
+            --metadata date="$(date +%D)" \
+            --metadata link-citations=true \
+            --bibliography=bibliography.yaml \
+            --csl ieee-with-url.csl \
+            --filter .bin/pandoc-citeproc \
+            --filter .bin/pandoc-include-code -s --highlight-style espresso \
+            -o output/doc.#{doctype}`
     end
   end
+end
+
+namespace :docker do
+  task :build do
+    system("docker build -t quay.io/dalehamel/usdt-report-doc .")
+  end
+  task :push do
+    system("docker push quay.io/dalehamel/usdt-report-doc")
+  end
+end
+
+task :rubocop do
+  system("bundle exec rubocop --auto-correct */**.rb")
 end

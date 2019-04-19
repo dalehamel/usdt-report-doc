@@ -1,0 +1,82 @@
+references:
+- id: ajor
+  title: Alastair Robertson's Homepage
+  author:
+  - given: Alastair
+    family: Robertson
+  URL: https://ajor.co.uk/projects/
+- id: brendangregg
+  title: Brendan Gregg's homepage
+  author:
+  - given: Brendan
+    family: Gregg
+  URL: http://brendangregg.com
+- id: tyroguru
+  title: Jon Haslam's Github
+  author:
+  - given: Jon
+    family: Haslam
+  URL: https://github.com/tyroguru
+- id: jvns
+  title: Julia Evans's homepage
+  author:
+  - given: Julia
+    family: Evans
+  URL: https://jvns.ca/
+- id: mmarchini
+  title: Matheus Marchini's homepage
+  author:
+  - given: Matheus
+    family: Marchini
+  URL: https://mmarchini.me/
+- id: palmtenor
+  title: Teng Qin's Github
+  author:
+  - given: Teng
+    family: Qin
+  URL: https://github.com/palmtenor
+- id: yonghong-song
+  title: Yonghong Song's Github
+  author:
+  - given: Yonghong
+    family: Song
+  URL: https://github.com/yonghong-song
+- id: bgreg-usdt-ftrace
+  title: Hacking Linux USDT with ftrace
+  author:
+  - given: Brendan
+    family: Gregg
+  URL: http://www.brendangregg.com/blog/2015-07-03/hacking-linux-usdt-ftrace.html
+- id: joel-fernandes-usdt-notes
+  title: USDT for reliable Userspace event tracing
+  author:
+  - given: Joel
+    family: Fernandes
+  URL: http://www.joelfernandes.org/linuxinternals/2018/02/10/usdt-notes.html
+- id: usdt-superpower
+  title: We just got a new super-power! Runtime USDT comes to Linux
+  author:
+  - given: Matheus
+    family: Marchini
+  URL: https://medium.com/sthima-insights/we-just-got-a-new-super-power-runtime-usdt-comes-to-linux-814dc47e909f
+- id: uprobes-int3-insn
+  title: Seeing is Believing - uprobes and int3 Instruction
+  author:
+  - given: Alexey
+    family: Kolganov
+  URL: https://dev.framing.life/tracing/uprobes-and-int3-insn/
+- id: stap-wiki-ust
+  title: UserSpaceProbeImplementation - Systemtap Wiki
+  author:
+  - given: Mark
+    family: Mark Wielaard
+  - given: Frank
+    family: Eigler
+  URL: https://sourceware.org/systemtap/wiki/UserSpaceProbeImplementation
+- id: stap-uprobe-documentation
+  title: User-Space Probes (Uprobes)
+  author:
+  - given: Jim
+    family: Keniston
+  URL: https://sourceware.org/git/gitweb.cgi?p=systemtap.git;a=blob;f=runtime/uprobes/uprobes.txt;h=edd524be022691498c7f38133b0e32192dcbb35f;hb=a2b182f549cf64427a474803f3c02286b8c1b5e1
+# * [lttng-ust vs USDT](https://lwn.net/Articles/754868/)

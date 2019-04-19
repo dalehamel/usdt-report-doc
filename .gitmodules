@@ -1,0 +1,3 @@
+[submodule "src/libstapsdt"]
+	path = src/libstapsdt
+	url = https://github.com/dalehamel/libstapsdt.git

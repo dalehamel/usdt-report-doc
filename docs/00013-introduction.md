@@ -1,15 +1,6 @@
----
-title: USDT Tracing report
+# Introduction
 
-references:
-- type: article-journal
-  title: 'Molecular structure of nucleic acids: a structure for deoxyribose
-    nucleic acid'
-  URL: http://www.nature.com/nature/journal/v171/n4356/abs/171737a0.html
-
----
-
-# USDT - Userspace Statically Defined Tracepoints
+## USDT - Userspace Statically Defined Tracepoints
 
 USDT tracepoints are a powerful tool that gained popularity with `dtrace`.
 
@@ -21,8 +12,6 @@ USDT tracepoints are placed within your code, and are executed when:
 
 * They have been explicitly enabled.
 * A tracing program, such as `bpftrace` or `dtrace` is connected to it.
-
-\newpage 
 
 ## Portability
 
@@ -41,19 +30,3 @@ Critically, USDT tracepoints have little to no impact on performance if they are
 This is what sets aside USDT tracepoints from other diagnostic tools, such as emitting metrics through statsd or writing to a logger.
 
 This makes USDT tracepoints great to deploy surgically, rather than the conventional "always on" diagnostics. Logging data and emitting metrcs do have some runtime overhead, and it is constant. The overhead that USDT tracepoints have is minimal, and limited to when they are actively being used to help answer a question about the behavior of an application.
-
-
-# ruby-static-tracing
-
-While USDT tracepoints are conventionally defined in C and C++ applications with a pre-processor macro, `systemtap` has created their own library for `sdt` tracepoints, which implement the same API as dtrace, on Linux. A wrapper around this, `libstapsdt` is used to generate and load tracepoints in a way that can be used in dynamic languages like Ruby.
-
-`ruby-static-tracing` is a gem that demonstrates the powerful applications of USDT tracepoints. It wraps `libstapsdt` for Linux support, and `libusdt` for Darwin / OS X support. This allows the gem to expose the same public Ruby api, implemented against separate libraries with specific system support.
-
-
-```{.ruby include=examples/helloworld.rb}
-```
-
-This is a basic ruby script that demonstrates the basic use of static tracepoints in Ruby.
-
-This simplistic program will loop indefinitely, printing `Not Enabled` every second. This represents the Ruby program going on it's merry way, doing what it's supposed to be doing - pretend that it is running actual application code. The application isn't spending any time executing probes, all it is doing is checking if the probe is enabled. Since the probe isn't enabled, it continues with business as usual. The cost of checking if a probe is enabled is extraordinarily low (~5 micro seconds).
-

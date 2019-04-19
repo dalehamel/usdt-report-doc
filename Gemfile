@@ -1,3 +1,6 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem 'publication'
+source 'https://rubygems.org'
+
+gem 'rake'
+gem 'rubocop', groups: %i[development test]
