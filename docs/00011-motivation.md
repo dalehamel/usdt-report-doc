@@ -1,13 +1,6 @@
----
-title: USDT Tracing report
-author: Dale Hamel
-
----
-
-# Motivation
+## Motivation
 
 I started this document with the hope that it would act as a helpful introduction to a number of cool new technologies being developed to enhance system observability on Linux platforms.
-
 With containerization being the dominant paradigm for production environments, workloads have moved from statically scheduled, orderly single-tenant deployments, to multi-tenant swarms of containers.
 
 The rigid order that configuration management systems like Chef, Ansible, Puppet, and Salt brought to DevOps were more akin to orderly armies. Like pieces on a chessboard, they were deployed tactically, with each playing their rigidly defined role. The capabilities of each piece here are described by rigidly defined machine specifications, and mapping a single application to a host image. These systems each brought ways to describe host systems with libraries (cookbooks / manifests, etc), to combine into a single machine image.
