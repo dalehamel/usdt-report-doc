@@ -15,6 +15,7 @@ namespace :report do
   desc 'Create doc to publish'
   task :init do
     puts `mkdir -p docs output .bin`
+    puts `ln -sf ../img output/img`
     puts `[ ! -f .bin/pandoc ] && wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-linux.tar.gz && tar -xvpf pandoc-2.7.2-linux.tar.gz && mv pandoc-2.7.2/bin/pandoc .bin/ && mv pandoc-2.7.2/bin/pandoc-citeproc .bin/ && rm -rf pandoc-2.7.2 && rm -f *.tar.gz*`
     puts `[ ! -f .bin/pandoc-include-code ] && wget https://github.com/owickstrom/pandoc-include-code/releases/download/v1.2.0.2/pandoc-include-code-linux-ghc8-pandoc-1-19.tar.gz && tar -xvpf pandoc-include-code-linux-ghc8-pandoc-1-19.tar.gz && mv ./pandoc-include-code .bin/ && rm -f *.tar.gz*`
     puts `bundle install`

@@ -110,3 +110,8 @@ printf
 kstack
 struct
 callstack
+kubectl
+JIT
+BPF
+stacktraces
+impactful

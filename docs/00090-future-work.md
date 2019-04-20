@@ -14,7 +14,7 @@ To have parity in debugging capabilities offered by dtrace, bpftrace needs to su
 
 As languages like `nodejs` have done, bpftrace and bcc should offer a means of reading annotations for JIT language instructions,
 mapping them back to the source code that generated the JIT instruction. Examining the approach that `Nodejs` and `Python` have taken
-to add support for ustack helpers, we should be able to generalize a means for `bpftrace` programs to interpret annotations for JIT instructions. [@Understanding DTrace ustack helpers]
+to add support for ustack helpers, we should be able to generalize a means for `bpftrace` programs to interpret annotations for JIT instructions. [@dtrace-ustack-helpers]
 
 Although ruby has a JIT under development, it would be ideal to have the code to annotate instructions for a ustack helper could be added
 now.
