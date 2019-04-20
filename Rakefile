@@ -23,7 +23,7 @@ namespace :report do
     %w[html pdf epub].each do |doctype|
       puts `.bin/pandoc docs/*.md --toc \
             --top-level-division=chapter \
-            --metadata date="$(date +%D)" \
+            --metadata date="$( date +"%D %X")" \
             --metadata link-citations=true \
             --bibliography=bibliography.yaml \
             --csl ieee-with-url.csl \
