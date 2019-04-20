@@ -201,7 +201,7 @@ then the tracepoint isn't enabled. If it doesn't, then a uprobe has placed a 0xC
 Upon firing the probe, libstapsdt will actually execute the code at this address, letting the kernel "take the wheel" briefly, to collect the trace data.
 This will execute our eBPF program that collects the tracepoint data and buffers it inside the kernel, then hand control back to our userspace ruby process.
 
-![eBPF handler injection from uprobe](./img/instruction-probes-workflow-z1-escaped.svg)
+![eBPF handler injection from uprobe](./img/instruction-probes-workflow-z1-escaped.png)
 
 Diagram credit [@uprobes-int3-insn].
 
