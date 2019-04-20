@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 mkdir -p output
 bundle install
 bundle exec rake report:init
