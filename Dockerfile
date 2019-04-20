@@ -14,7 +14,7 @@ RUN apt-get install -y texlive-fonts-recommended && apt-get clean
 RUN apt-get install -y texlive-fonts-extra && apt-get clean
 RUN apt-get install -y librsvg2-bin
 RUN apt-get install -y calibre && apt-get clean
-RUN apt-get install -y aspell aspell-en libyaml && apt-get clean
+RUN apt-get install -y aspell aspell-en && apt-get clean
 RUN apt-get install -y ruby ruby-dev build-essential && apt-get clean
 RUN gem install bundler
 
