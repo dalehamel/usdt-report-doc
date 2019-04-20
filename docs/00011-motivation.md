@@ -6,7 +6,7 @@ author: Dale Hamel
 
 # Motivation
 
-I started this document with the hope that it would act as a helpful introduction to a number of cool new technologies being developed to enhance system obsevability on Linux platforms.
+I started this document with the hope that it would act as a helpful introduction to a number of cool new technologies being developed to enhance system observability on Linux platforms.
 
 With containerization being the dominant paradigm for production environments, workloads have moved from statically scheduled, orderly single-tenant deployments, to multi-tenant swarms of containers.
 

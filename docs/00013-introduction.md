@@ -29,4 +29,4 @@ Critically, USDT tracepoints have little to no impact on performance if they are
 
 This is what sets aside USDT tracepoints from other diagnostic tools, such as emitting metrics through statsd or writing to a logger.
 
-This makes USDT tracepoints great to deploy surgically, rather than the conventional "always on" diagnostics. Logging data and emitting metrcs do have some runtime overhead, and it is constant. The overhead that USDT tracepoints have is minimal, and limited to when they are actively being used to help answer a question about the behavior of an application.
+This makes USDT tracepoints great to deploy surgically, rather than the conventional "always on" diagnostics. Logging data and emitting metrics do have some runtime overhead, and it is constant. The overhead that USDT tracepoints have is minimal, and limited to when they are actively being used to help answer a question about the behavior of an application.

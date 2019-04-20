@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/dalehamel/usdt-report-doc.svg?branch=master)](https://travis-ci.org/dalehamel/usdt-report-doc)
 
+[![Docker Repository on Quay](https://quay.io/repository/dalehamel/usdt-report-doc/status "Docker Repository on Quay")](https://quay.io/repository/dalehamel/usdt-report-doc?tab=builds)
 # USDT Report
 
 This is the backend page for https://blog.srvthe.net/usdt-report-doc/,

@@ -2,11 +2,11 @@ services:
   - docker
 language: ruby
 before_install:
-  - docker pull quay.io/dalehamel/usdt-report-doc
-  - docker run -v $(pwd):/app --name usdt-report-doc -d quay.io/dalehamel/usdt-report-doc /bin/sh -c "sleep infinity"
-#  - docker exec usdt-report-doc ./scripts/ci-build.sh
+ - bundle install
+ - bundle exec rake docker:run
 script:
- - docker exec usdt-report-doc ./scripts/build.sh CI
+ - CI=true bundle exec rake docker:test
+ - CI=true bundle exec rake docker:publish
 
 env:
   matrix:
