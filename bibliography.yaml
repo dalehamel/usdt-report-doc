@@ -10,7 +10,7 @@ references:
   author:
   - given: Brendan
     family: Gregg
-  URL: http://brendangregg.com
+  URL: https://brendangregg.com
 - id: tyroguru
   title: Jon Haslam's Github
   author:
@@ -46,13 +46,13 @@ references:
   author:
   - given: Brendan
     family: Gregg
-  URL: http://www.brendangregg.com/blog/2015-07-03/hacking-linux-usdt-ftrace.html
+  URL: https://www.brendangregg.com/blog/2015-07-03/hacking-linux-usdt-ftrace.html
 - id: joel-fernandes-usdt-notes
   title: USDT for reliable Userspace event tracing
   author:
   - given: Joel
     family: Fernandes
-  URL: http://www.joelfernandes.org/linuxinternals/2018/02/10/usdt-notes.html
+  URL: https://www.joelfernandes.org/linuxinternals/2018/02/10/usdt-notes.html
 - id: usdt-superpower
   title: We just got a new super-power! Runtime USDT comes to Linux
   author:
