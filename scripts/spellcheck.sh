@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 if [ "$1" == "CI" ];then
   mv vendor vendor.bak
 fi
