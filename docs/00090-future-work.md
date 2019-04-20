@@ -4,9 +4,11 @@
 
 It may not end up being an issue, but if probes are enabled (and fired!) persistently and frequently, the cost of the `int3` trap overhead may become significant.
 
-uprobes allow for buffering trace event data in kernel space, but lttng-ust provides a means to buffer data in userspace.
+uprobes allow for buffering trace event data in kernel space, but lttng-ust provides a means to buffer data in userspace [@lttng-ust-ebpf]. This eliminates the necessity of the `int3` trap, and allows for buffering trace data in the userspace application rather than the kernel. This approach could be used to aggregate events and perform fewer trap interrupts, draining the userland buffers during each eBPF read-routine.
 
-This eliminates the necessity of the `int3` trap, and allows for buffering trace data in the userspace application rather than the kernel.
+While `lttng-ust` does support userspace tracing of C programs already [@lttng-ust-manpage], in a way analogously to `sys/sdt.h`, there is no solution for a dynamic version an `lttng-ust` binary. Like `DTRACE` macros, the `lttng-ust` macros are used to build the handlers, and they are linked-in as a shared object. In the same way that libstapsdt builds elf notes, it's possible that a generator for the shared library stub produced by `lttng-ust` could be built. A minimum proof of concept would be a JIT compiler that compiles a generated header into an elf binary that can be `dlopen`'d to map it into the tracee's address space.
+
+Analyzing the binary of a lttng-ust probe may give some clues as to how to build a minimal stub dynamically, as `libstapsdt` has done for `systemtap`'s `dtrace` macro implementation.
 
 ## ustack helpers in bpftrace
 

@@ -103,4 +103,15 @@ references:
   - given: David
     family: Pacheco
   URL: https://www.joyent.com/blog/understanding-dtrace-ustack-helpers
-# * [lttng-ust vs USDT](https://lwn.net/Articles/754868/)
+- id: lttng-ust-ebpf
+  title: Using user-space tracepoints with BPF
+  author:
+  - given: Mathieu
+    family: Desnoyers
+  URL: https://lwn.net/Articles/754868/
+- id: lttng-ust-manpage
+  title: lttng-ust manpage
+  author:
+  - given: Mathieu
+    family: Desnoyers
+  URL: https://lttng.org/man/3/lttng-ust/v2.10/
