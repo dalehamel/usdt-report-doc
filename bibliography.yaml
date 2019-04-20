@@ -115,3 +115,47 @@ references:
   - given: Mathieu
     family: Desnoyers
   URL: https://lttng.org/man/3/lttng-ust/v2.10/
+- id: rbspy-github-io
+  title: rbspy github pages
+  author:
+  - given: Julia
+    family: Evans
+  - given: Julia
+    family: Evans
+  - given: Kamal
+    family: Marhubi
+  - given: Joel
+    family: Johnson
+  URL: https://rbspy.github.io/
+- id: rbspy-vs-stackprof
+  title: rbspy vs stackprof
+  author:
+  - given: Julia
+    family: Evans
+  - given: Julia
+    family: Evans
+  - given: Kamal
+    family: Marhubi
+  - given: Joel
+    family: Johnson
+  URL: https://rbspy.github.io/rbspy-vs-stackprof/
+- id: stackprof-github
+  title: stackprof github repo
+  author:
+  - given: Aman
+    family: Gupta
+  URL: https://github.com/tmm1/stackprof
+- id: rbtrace-github
+  title: rbtrace github repo
+  author:
+  - given: Aman
+    family: Gupta
+  URL: https://github.com/tmm1/rbtrace
+- id: rotoscope-github
+  title: rotoscope github repo
+  author:
+  - given: Jahfer
+    family: Husain
+  - given: Dylan
+    family: Dylan Thacker-Smith
+  URL: https://github.com/Shopify/rotoscope
