@@ -1,6 +1,3 @@
-[submodule "src/libstapsdt"]
-	path = src/libstapsdt
-	url = https://github.com/dalehamel/libstapsdt.git
 [submodule "src/ruby-static-tracing"]
 	path = src/ruby-static-tracing
 	url = https://github.com/dalehamel/ruby-static-tracing.git
