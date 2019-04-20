@@ -1,3 +1,6 @@
 [submodule "src/ruby-static-tracing"]
 	path = src/ruby-static-tracing
 	url = https://github.com/dalehamel/ruby-static-tracing.git
+[submodule "src/bcc"]
+	path = src/bcc
+	url = https://github.com/iovisor/bcc.git

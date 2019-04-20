@@ -105,3 +105,8 @@ inode
 src
 startLine
 variadic
+e'kprobe
+printf
+kstack
+struct
+callstack
