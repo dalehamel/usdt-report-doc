@@ -43,7 +43,7 @@ namespace :docker do
     system("docker push quay.io/dalehamel/usdt-report-doc")
   end
   task :publish do
-    system("docker exec usdt-report-doc ./scripts/ci-build.sh")
+    system("docker exec usdt-report-doc ./scripts/build.sh")
   end
 end
 

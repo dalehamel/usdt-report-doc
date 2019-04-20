@@ -1,4 +1,4 @@
-![badge](https://travis-ci.org/dalehamel/usdt-report-doc.svg?branch=master)
+[![Build Status](https://travis-ci.org/dalehamel/usdt-report-doc.svg?branch=master)](https://travis-ci.org/dalehamel/usdt-report-doc)
 
 # USDT Report
 
