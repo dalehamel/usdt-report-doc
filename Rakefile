@@ -41,6 +41,9 @@ namespace :docker do
   task :push do
     system("docker push quay.io/dalehamel/usdt-report-doc")
   end
+  task :publish do
+    system("docker exec usdt-report-doc ./scripts/ci-build.sh")
+  end
 end
 
 task :rubocop do
