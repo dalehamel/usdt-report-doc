@@ -79,4 +79,10 @@ references:
   - given: Jim
     family: Keniston
   URL: https://sourceware.org/git/gitweb.cgi?p=systemtap.git;a=blob;f=runtime/uprobes/uprobes.txt;h=edd524be022691498c7f38133b0e32192dcbb35f;hb=a2b182f549cf64427a474803f3c02286b8c1b5e1
+- id: dtrace-ustack-helpers
+  title: Understanding DTrace ustack helpers
+  author:
+  - given: David
+    family: Pacheco
+  URL: https://www.joyent.com/blog/understanding-dtrace-ustack-helpers
 # * [lttng-ust vs USDT](https://lwn.net/Articles/754868/)
