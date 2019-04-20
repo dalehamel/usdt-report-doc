@@ -27,6 +27,7 @@ namespace :report do
             --metadata link-citations=true \
             --bibliography=bibliography.yaml \
             --csl ieee-with-url.csl \
+            #{"--template=./templates/GitHub.html5" if doctype == "html"} \
             --filter .bin/pandoc-citeproc \
             --filter .bin/pandoc-include-code -s --highlight-style espresso \
             -o output/doc.#{doctype}`
