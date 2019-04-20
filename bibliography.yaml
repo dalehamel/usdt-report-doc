@@ -41,6 +41,18 @@ references:
   - given: Teng
     family: Qin
   URL: https://github.com/palmtenor
+- id: fntlnz
+  title: Lorenzo Fontana's Homepage
+  author:
+  - given: Lorenzo
+    family: Fontana
+  URL: https://fntlnz.wtf/
+- id: leodido
+  title: Leo Di Donato's Github
+  author:
+  - given: Leo
+    family: Di Donato
+  URL: https://github.com/leodido
 - id: yonghong-song
   title: Yonghong Song's Github
   author:
