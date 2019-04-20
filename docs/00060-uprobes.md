@@ -44,3 +44,166 @@ then the tracepoint isn't enabled. If it doesn't, then a uprobe has placed a 0xC
 
 Upon firing the probe, libstapsdt will actually execute the code at this address, letting the kernel "take the wheel" briefly, to collect the trace data.
 This will execute our eBPF program that collects the tracepoint data and buffers it inside the kernel, then hand control back to our userspace ruby process.
+
+# Examining the dynamically loaded ELF
+
+For our ruby process with a loaded provider, we can see the provider in the address space of the process:
+
+```
+cat /proc/22205/maps | grep libstapsdt:global
+
+```
+
+```bash
+7fc624c3b000-7fc624c3c000 r-xp [...] 9202140   /memfd:libstapsdt:global (deleted)
+7fc624c3c000-7fc624e3b000 ---p [...] 9202140   /memfd:libstapsdt:global (deleted)
+7fc624e3b000-7fc624e3c000 rw-p [...] 9202140   /memfd:libstapsdt:global (deleted)
+```
+
+The left-most field is the process memory that is mapped to this library. Note that it appears 3 times,
+for the different permission modes of the memory (second column). The number in the center is the inode
+associated with our memory image, and it is identical for all of them because they are all backed by
+the same memory-only file descriptor. This is why, to the very right, we see `(deleted)` - the file
+descriptor doesn't actually exist on the filesystem at the address specified.
+
+This is because we are using a memory-backed file descriptor to store the ELF notes. The value shown
+here for `/memfd:[...]` is a special annotation for file descriptors that have no backing file and
+exist entirely in memory. We do this so that we don't have to clean up the generated ELF files manually.
+
+In examining the file descriptors for this process, we find that one of them matches the name and apparent
+path of this file memory mapped segment:
+
+```
+$ readlink -f /proc/22205/fd/*
+/dev/pts/11
+/dev/pts/11
+/dev/pts/11
+/proc/22205/fd/pipe:[9202138]
+/proc/22205/fd/pipe:[9202138]
+/proc/22205/fd/pipe:[9202139]
+/proc/22205/fd/pipe:[9202139]
+/memfd:libstapsdt:global (deleted)
+/dev/null
+/dev/null
+```
+
+It happens to be at the path `/proc/22205/fd/7`. If we read our elf notes for this path, we get what we expect:
+
+```
+readelf --notes /proc/22205/fd/7
+```
+
+```gnuassembler
+
+Displaying notes found in: .note.stapsdt
+  Owner                 Data size       Description
+  stapsdt              0x00000039       NT_STAPSDT (SystemTap probe descriptors)
+    Provider: global
+    Name: hello_nsec
+    Location: 0x0000000000000280, Base: 0x0000000000000340, Semaphore: 0x0000000000000000
+    Arguments: 8@%rdi -8@%rsi
+  stapsdt              0x0000002e       NT_STAPSDT (SystemTap probe descriptors)
+    Provider: global
+    Name: enabled
+    Location: 0x0000000000000285, Base: 0x0000000000000340, Semaphore: 0x0000000000000000
+    Arguments: 8@%rdi
+```
+
+And, if we just read the memory space directly using the addresses for our ELF blob earlier:
+
+```
+readelf --notes /proc/22205/map_files/7fc624c3b000-7fc624c3c000
+```
+
+```gnuassembler
+
+Displaying notes found in: .note.stapsdt
+  Owner                 Data size       Description
+  stapsdt              0x00000039       NT_STAPSDT (SystemTap probe descriptors)
+    Provider: global
+    Name: hello_nsec
+    Location: 0x0000000000000280, Base: 0x0000000000000340, Semaphore: 0x0000000000000000
+    Arguments: 8@%rdi -8@%rsi
+  stapsdt              0x0000002e       NT_STAPSDT (SystemTap probe descriptors)
+    Provider: global
+    Name: enabled
+    Location: 0x0000000000000285, Base: 0x0000000000000340, Semaphore: 0x0000000000000000
+    Arguments: 8@%rdi
+```
+
+We see that it matches exactly!
+
+Notice that the location of `global:hello_nsec` is `0x0280` in the elf notes.
+
+Now we will use `gdb` to dump the memory for our program so that we can examine the hexadecimal of its address space.
+
+```
+sudo gdb --pid 22205
+(gdb) dump memory unattached 0x7fc624c3b000 0x7fc624c3c000
+```
+
+```
+hexdump -C unattached
+```
+
+```{.gnuassembler include=examples/hello-world.hexdump startLine=36 endLine=45}
+
+```
+
+Lets take a closer look at that address 0x280:
+
+```gnuassembler
+00000280  90 90 90 90 c3 90 90 90  90 c3 00 00 00 00 00 00  |................|
+```
+
+Those first 5 bytes look familiar! Recall the definition of `_funcStart` earlier:
+
+```{.gnuassembler include=src/ruby-static-tracing/ext/ruby-static-tracing/lib/libstapsdt/src/asm/libstapsdt-x86_64.s startLine=7 endLine=12}
+```
+
+The assembly instruction `NOP` corresponds to `0x90` on x86 platforms, and the assembly instruction `RET` corresponds to `0xc3`. So, we're
+looking at the machine code for the stub function that we created with `libstapsdt`. This is the code that will be executed every time we call `fire`
+in userspace. The processor will run four `NOP` instructions, and then return.
+
+As we can see in `libstapsdt`, the address of `probe._fire` is set from the location of the probe's name, as calculated from the ELF offset:
+
+```{.c include=src/ruby-static-tracing/ext/ruby-static-tracing/lib/libstapsdt/src/libstapsdt.c startLine=154 endLine=165}
+```
+
+So this is what the memory space looks like where we've loaded our ELF stubs, and we can see how userspace `libstapsdt` operations work.
+
+For instance, the code that checks if a provider is enabled:
+
+```{.c include=src/ruby-static-tracing/ext/ruby-static-tracing/lib/libstapsdt/src/libstapsdt.c startLine=235 endLine=243}
+
+```
+
+It is simply checking the memoryspace to see if the address of the function starts with a `NOP` instruction (`0x90`).
+
+Now, if we attach to our program with `bpftrace`, we'll see the effect that attaching a uprobe to this address will have.
+
+Dumping the same memory again with `gdb`:
+
+
+```{.gnuassembler include=examples/hello-world-attached.hexdump startLine=36 endLine=45}
+
+```
+
+We see that the first byte of our function has changed!
+
+
+```gnuassembler
+00000280  cc 90 90 90 c3 90 90 90  90 c3 00 00 00 00 00 00  |................|
+```
+
+Where we previously had a function that did `NOP NOP NOP NOP RET`, we now have the new instruction `0xCC`, which on x86 platforms is the "breakpoint" instruction known as `int3`.
+
+When our enabled check runs now, it will see that the bytes at the start of the function are not a `NOP`, and are `INT3` instead. Now that our function is enabled, our code will allow us to call `probe._fire`.
+
+We can pass up to 6 arguments when firing the probe. The code in `libstapsdt` simply passes every possibly arg count from a variadic list signature using a `switch` statement:
+
+```{.c include=src/ruby-static-tracing/ext/ruby-static-tracing/lib/libstapsdt/src/libstapsdt.c startLine=207 endLine=228}
+
+```
+
+When the address is called, the arguments passed in will be pushed onto the stack for this function call. This is how our probe is able to read arguments - by examining the address space of the caller's stack.
