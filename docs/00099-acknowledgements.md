@@ -11,7 +11,11 @@ This is a report is meant to summarize my own research and experiments in this a
 
 I'd also like to specifically extend appreciation to Facebook and Netflix's Engineering staff working on tracing and kernel development, for their continued contributions and leadership in the field of Linux tracing and contributions to eBPF, as well as the entire iovisor group.
 
-# Works cited
+# Works Researched
+
+Some of these may have been cited or sourced indirectly, or were helpful in my own research and understanding whether I explicitly cited them or not.
+
+If you'd like to learn more, check out these other resources:
 
 - Hacking Linux USDT with ftrace [@bgreg-usdt-ftrace]
 - USDT for reliable Userspace event tracing [@joel-fernandes-usdt-notes]
@@ -19,4 +23,4 @@ I'd also like to specifically extend appreciation to Facebook and Netflix's Engi
 - Seeing is Believing: uprobes and int3 Instruction [@uprobes-int3-insn]
 - Systemtap UST wiki [@stap-wiki-ust]
 - Systemtap uprobe documentation [@stap-uprobe-documentation]
-
+- Linux tracing systems & how they fit together [@jvns-tracing-systems]
