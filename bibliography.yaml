@@ -248,3 +248,21 @@ references:
   - given: Adam
     family: Števko
   URL: https://awesome-dtrace.com/
+- id: gustavocaso
+  title: gustavo caso's homepage
+  author:
+  - given: gustavo
+    family: caso
+  url: http://gustavocaso.github.io/
+- id: eightbitraptor
+  title: Matt Valentine-House's Homepage
+  author:
+  - given: Matt
+    family: Valentine-House
+  url: https://www.eightbitraptor.com/
+- id: derek-stride
+  title: Derek Stride's Github
+  author:
+  - given: Derek
+    family: Stride
+  url: https://github.com/DerekStride
