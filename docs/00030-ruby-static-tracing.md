@@ -1,4 +1,6 @@
-# ruby-static-tracing
+# USDT tracing in dynamic languages
+
+## ruby-static-tracing
 
 While USDT tracepoints are conventionally defined in C and C++ applications with a preprocessor macro, `systemtap` has created their own library for `sdt` tracepoints, which implement the same API as dtrace, on Linux. A wrapper around this, `libstapsdt` is used to generate and load tracepoints in a way that can be used in dynamic languages like Ruby.
 

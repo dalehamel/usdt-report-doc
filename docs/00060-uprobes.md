@@ -1,4 +1,4 @@
-# Examining the dynamically loaded ELF
+## Examining the dynamically loaded ELF
 
 For our ruby process with a loaded provider, we can see the provider in the address space of the process:
 
@@ -161,7 +161,7 @@ We can pass up to 6 arguments when firing the probe. The code in `libstapsdt` si
 
 When the address is called, the arguments passed in will be pushed onto the stack for this function call. This is how our probe is able to read arguments - by examining the address space of the caller's stack.
 
-## int3 (0xCC), NOP (0x90) and uprobes
+### int3 (0xCC), NOP (0x90) and uprobes
 
 When the probe is fired, the kernel begins its trap handler. We can see this by running a trace of the kernel's trap handler
 while we attach our probe:
@@ -205,7 +205,7 @@ This will execute our eBPF program that collects the tracepoint data and buffers
 
 Diagram credit [@uprobes-int3-insn].
 
-## USDT read arguments
+### USDT read arguments
 
 Here we can see how arguments are pulled off the stack by bpftrace.
 

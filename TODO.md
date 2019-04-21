@@ -1,11 +1,11 @@
-- Show both dtrace and bpftrace for ruby-static-tracing examples
 - Cover a basic example in each language supported by libstapsdt
 - Show usage with kubectl-trace
 - Have a section with advanced uses of ruby-static-tracing
  - Including latency tracker
  - Using stack tracer
  - HTTP tracer
- - Adding tracepoints to a rails program
+- Maximum line length wrapping for PDF output
+- Read-through fo references to vagrant
 
 - Diagrams:
  - State diagram of ruby-static-tracing (SIGPROF, etc)

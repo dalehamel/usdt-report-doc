@@ -153,3 +153,9 @@ ApDex
 randist
 nsec
 bikeshedding
+profilers
+ptrace
+gdb
+strace
+readv
+tmm
