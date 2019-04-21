@@ -1,4 +1,6 @@
-# The magic sauce
+# USDT tracing alternatives
+
+## Ruby
 
 This approach to tracing uses the x86 breakpoint instruction (`INT3 0xCC`) to trigger a kernel trap handler that will hand off execution to an eBPF probe.
 
