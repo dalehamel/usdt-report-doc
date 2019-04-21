@@ -77,6 +77,12 @@ references:
   - given: Matheus
     family: Marchini
   URL: https://medium.com/sthima-insights/we-just-got-a-new-super-power-runtime-usdt-comes-to-linux-814dc47e909f
+- id: williangaspar
+  title: Willian Gaspar's Github
+  author:
+  - given: Willian
+    family: Gaspar
+  URL: https://github.com/williangaspar
 - id: uprobes-int3-insn
   title: Seeing is Believing - uprobes and int3 Instruction
   author:
@@ -177,3 +183,53 @@ references:
 - id: bpftrace-reference-guide
   title: bpftrace reference guide
   URL: https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md
+- id: dalehamel
+  title: Dale Hamel's Homepage
+  author:
+  - given: Dale
+    family: Hamel
+  URL: https://blog.srvthe.net
+- id: ruby-static-tracing
+  title: ruby-static-tracing gem
+  author:
+  - given: Dale
+    family: Hamel
+  URL: https://github.com/dalehamel/ruby-static-tracing
+- id: usdt-rails-sample
+  title: Rails App with USDT tracing sample
+  author:
+  - given: Dale
+    family: Hamel
+  URL: https://github.com/dalehamel/usdt-rails-sample
+- id: ruby-static-tracing
+  title: ruby-static-tracing gem
+  author:
+  - given: Dale
+    family: Hamel
+  URL: https://github.com/dalehamel/ruby-static-tracing
+- id: libstapsdt
+  title: libstapsdt repository
+  author:
+  - given: Matheus
+    family: Marchini
+  - given: Willian
+    family: Gaspar
+  URL: https://github.com/sthima/libstapsdt
+- id: mmcshane
+  title: Matt McShane's Homepage
+  author:
+  - given: Matt
+    family: McShane
+  URL: https://mattmcshane.com/
+- id: ruby-jit
+  title: Ruby’s New JIT
+  author:
+  - given: Shannon
+    family: Skipper
+  URL: https://medium.com/square-corner-blog/rubys-new-jit-91a5c864dd10
+- id: nodejs-david-pacheco
+  title: Where does your Node program spend its time?
+  author:
+  - given: David
+    family: Pacheco
+  URL: http://dtrace.org/blogs/dap/2012/01/05/where-does-your-node-program-spend-its-time/

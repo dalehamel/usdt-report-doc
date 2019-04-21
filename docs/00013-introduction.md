@@ -15,7 +15,7 @@ USDT tracepoints are placed within your code, and are executed when:
 
 ## Portability
 
-Originally limited to BSD, Solaris, and other systems with `dtrace`, it is now simple to use USDT tracepoints on Linux. `systemtap` for linux has produced `sys/sdt.h` that can be used to add dtrace probes to linux applications written in C, and for dynamic languages `libstapsdt` can be used to add static tracepoints using whatever C extension framework is available for the language runtime. To date, there are wrappers for golang, Python, NodeJS, and a Ruby wrapper under development.
+Originally limited to BSD, Solaris, and other systems with `dtrace`, it is now simple to use USDT tracepoints on Linux. `systemtap` for linux has produced `sys/sdt.h` that can be used to add dtrace probes to linux applications written in C, and for dynamic languages `libstapsdt` [@libstapsdt] can be used to add static tracepoints using whatever C extension framework is available for the language runtime. To date, there are wrappers for golang, Python, NodeJS, and a Ruby [@ruby-static-tracing] wrapper under development.
 
 `bpftrace`'s similarity to `dtrace` allows for USDT tracepoints to be accessible throughout the lifecycle of an application.
 

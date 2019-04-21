@@ -10,6 +10,8 @@ While `lttng-ust` does support userspace tracing of C programs already [@lttng-u
 
 Analyzing the binary of a lttng-ust probe may give some clues as to how to build a minimal stub dynamically, as `libstapsdt` has done for `systemtap`'s `dtrace` macro implementation.
 
+Implementing userspace support in libraries like `ruby-static-tracing` [@ruby-static-tracing] by wrapping `lttng-ust` could also offer a means of using userspace tracepoints for kernels not supporting eBPF, and an interesting benchmark comparison of user vs kernel space tracing, perhaps offering complementary approaches [@lttng-ust-ebpf].
+
 ## ustack helpers in bpftrace
 
 To have parity in debugging capabilities offered by dtrace, bpftrace needs to support the concept of a `ustack helper`.
@@ -18,13 +20,17 @@ As languages like `nodejs` have done, bpftrace and bcc should offer a means of r
 mapping them back to the source code that generated the JIT instruction. Examining the approach that `Nodejs` and `Python` have taken
 to add support for ustack helpers, we should be able to generalize a means for `bpftrace` programs to interpret annotations for JIT instructions. [@dtrace-ustack-helpers]
 
-Although ruby has a JIT under development, it would be ideal to have the code to annotate instructions for a ustack helper could be added
+## Ruby JIT notes
+
+Although ruby has a JIT under development [@ruby-jit], it would be ideal to have the code to annotate instructions for a ustack helper could be added
 now.
 
 If ruby's JIT simply wrote out notes in a way that would be easily loaded into a BPF map to notes by instruction, the eBPF probe can
 just check against this map for notes, and then the `ustack` helper in bpftrace would simply need a means of specifying how
 this map should be read when it is displayed.
 
-This would allow for stacktraces that span ruby space (via the annotated JIT instructions), C methods (via normal ELF parsing), and the kernel itself.
+This would allow for stacktraces that span ruby space (via the annotated JIT instructions), C methods (via normal ELF parsing), and the kernel itself. Hopefully offering similar functionality to what has been provided to nodejs [@nodejs-david-pacheco].
 
 While not actually related to directly USDT, ustack helpers in bpftrace and support for a ruby ustack helper would be tremendously impactful at understanding the full execution profile of ruby programs.
+
+Ruby JIT is experimental and possibly to enable with `--jit` flag in 2.6 and higher. Perhaps adding JIT notes in a conforming way early could help to increase visibility into JIT'd code?

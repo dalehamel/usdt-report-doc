@@ -5,6 +5,7 @@ This is a report is meant to summarize my own research and experiments in this a
 - Brendan Gregg [@brendangregg] for his contributions to improving the accessibility of tracing tools throughout the industry
 - Alastair Robertson [@ajor] for creating bpftrace, and personally for reviewing the PRs I've submitted and offering insightful feedback
 - Matheus Marchini [@mmarchini] for his contributions to USDT tracing and feedback in reviews
+- Willian Gaspar [@williangaspar] for his contributions to iovisor and works featured here
 - Jon Haslam [@tyroguru] for his assistance and feedback on pull requests for USDT functionality in bpftrace
 - Teng Qin [@palmtenor] for reviewing my BCC patches with laser eyes
 - Yonghong Song [@yonghong-song] for reviewing my BCC patches with laser eyes
@@ -14,7 +15,7 @@ This is a report is meant to summarize my own research and experiments in this a
 
 I'd also like to specifically extend appreciation to Facebook and Netflix's Engineering staff working on tracing and kernel development, for their continued contributions and leadership in the field of Linux tracing and contributions to eBPF, as well as the entire iovisor group.
 
-# Works Researched
+## Works Researched
 
 Some of these may have been cited or sourced indirectly, or were helpful in my own research and understanding whether I explicitly cited them or not.
 
@@ -27,3 +28,4 @@ If you'd like to learn more, check out these other resources:
 - Systemtap UST wiki [@stap-wiki-ust]
 - Systemtap uprobe documentation [@stap-uprobe-documentation]
 - Linux tracing systems & how they fit together [@jvns-tracing-systems]
+- Full-system dynamic tracing on Linux using eBPF and bpftrace [@joyful-bikeshedding-bpftrace]
