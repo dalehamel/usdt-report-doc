@@ -4,3 +4,12 @@
 [submodule "src/bcc"]
 	path = src/bcc
 	url = https://github.com/iovisor/bcc.git
+[submodule "src/python-stapsdt"]
+	path = src/python-stapsdt
+	url = https://github.com/sthima/python-stapsdt
+[submodule "src/node-usdt"]
+	path = src/node-usdt
+	url = https://github.com/sthima/node-usdt.git
+[submodule "src/salp"]
+	path = src/salp
+	url = https://github.com/mmcshane/salp

@@ -1,4 +1,4 @@
-## libstapsdt
+# libstapsdt
 
 This library was written by largely by Matheus Marchini [@mmarchini], and provides a means of generating elf notes in a format compatible to `DTRACE` macros for generating elf notes on linux.
 
@@ -15,3 +15,4 @@ It simply inserts four `NOP` instructions, followed by a `RET`. In case you don'
 The address of this blob of assembly is used as the address of the function `probe._fire` in `libstapsdt`. So, each probe is calling into a memory region that we've dynamically loaded into memory, and the addresses of these probes can be computed by reading the elf notes on these generated stubs.
 
 To understand this better, we'll dive into how this works. This will take us all the way from the Ruby call, to down inside the kernel.
+
