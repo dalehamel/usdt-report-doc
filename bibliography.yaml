@@ -233,3 +233,18 @@ references:
   - given: David
     family: Pacheco
   URL: http://dtrace.org/blogs/dap/2012/01/05/where-does-your-node-program-spend-its-time/
+- id: facebook-btf
+  title: Enhancing the Linux kernel with BTF type information
+  author:
+  - given: Andrii
+    family: Nakryiko
+  URL: https://facebookmicrosites.github.io/bpf/blog/2018/11/14/btf-enhancement.html
+- id: kernel-btf
+  title: Kernel BTF documentation
+  URL: https://www.kernel.org/doc/html/latest/bpf/index.html#bpf-type-format-btf
+- id: awesome-dtrace
+  title: Awesome Dtrace - A curated list of awesome DTrace books, articles, videos, tools and resources
+  author:
+  - given: Adam
+    family: Števko
+  URL: https://awesome-dtrace.com/

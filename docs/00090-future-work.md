@@ -34,3 +34,10 @@ This would allow for stacktraces that span ruby space (via the annotated JIT ins
 While not actually related to directly USDT, ustack helpers in bpftrace and support for a ruby ustack helper would be tremendously impactful at understanding the full execution profile of ruby programs.
 
 Ruby JIT is experimental and possibly to enable with `--jit` flag in 2.6 and higher. Perhaps adding JIT notes in a conforming way early could help to increase visibility into JIT'd code?
+## BTF support
+
+For introspecting userspace applications, BTF [@facebook-btf] looks like it will be useful for deeper analysis of a variety of typed-objects.
+
+This may also free bpftrace and bcc from the need fork kernel headers, if the kernel type information can be read directly from BPF maps. For userspace programs, they may need to be compiled with BTF type information available, or have this information generated and loaded elsewhere somehow. This would be useful for analyzing the C components of language runtimes, such tracing the internals of the ruby C runtime, or analyzing C/C++ based application servers or databases.
+
+BTF support requires a kernel v4.18 or newer, and the raw BTF documentation is available in the kernel sources [@kernel-btf]. Few userspace tools exist for BTF yet, but once it is added into tools like `libbcc` and `bpftrace`, a whole new realm of possibilities for debugging and tracing applications is possible.

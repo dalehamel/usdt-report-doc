@@ -29,3 +29,4 @@ If you'd like to learn more, check out these other resources:
 - Systemtap uprobe documentation [@stap-uprobe-documentation]
 - Linux tracing systems & how they fit together [@jvns-tracing-systems]
 - Full-system dynamic tracing on Linux using eBPF and bpftrace [@joyful-bikeshedding-bpftrace]
+- Awesome Dtrace - A curated list of awesome DTrace books, articles, videos, tools and resources [@awesome-dtrace]
