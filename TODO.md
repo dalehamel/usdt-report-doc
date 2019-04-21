@@ -1,11 +1,13 @@
-- Cover a basic example in each language supported by libstapsdt
+- Use png files for histogram images
+- Check for wide-line code references that look bad in PDF
+- More attributions / references passes
+- line-wrapping for bpftrace/dtrace calls
 - Show usage with kubectl-trace
 - Have a section with advanced uses of ruby-static-tracing
- - Including latency tracker
  - Using stack tracer
- - HTTP tracer
+ - HTTP tracer (when written)
 - Maximum line length wrapping for PDF output
-- Read-through fo references to vagrant
+- Read-through for references to vagrant
 
 - Diagrams:
  - State diagram of ruby-static-tracing (SIGPROF, etc)
