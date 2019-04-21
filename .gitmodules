@@ -13,3 +13,6 @@
 [submodule "src/salp"]
 	path = src/salp
 	url = https://github.com/mmcshane/salp
+[submodule "src/usdt-rails-sample"]
+	path = src/usdt-rails-sample
+	url = https://github.com/dalehamel/usdt-rails-sample.git

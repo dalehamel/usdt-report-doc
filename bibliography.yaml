@@ -159,3 +159,9 @@ references:
   - given: Dylan
     family: Dylan Thacker-Smith
   URL: https://github.com/Shopify/rotoscope
+- id: wrk-http-benchmark
+  title: WRK the HTTP benchmarking tool - Advanced Example
+  author:
+  - given: Michał
+    family: Czeraszkiewicz
+  URL: http://czerasz.com/2015/07/19/wrk-http-benchmarking-tool-example/

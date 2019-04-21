@@ -1,12 +1,11 @@
-- Fill in the skeleton here
-
-- Walk through the process of a probe is libstapsdt, down through the kernel
-
+- Show both dtrace and bpftrace for ruby-static-tracing examples
 - Cover a basic example in each language supported by libstapsdt
-- Cover a basic dtrace probe example
-
-- Tracing examples
-- Dtrace, bpftrace
+- Show usage with kubectl-trace
+- Have a section with advanced uses of ruby-static-tracing
+ - Including latency tracker
+ - Using stack tracer
+ - HTTP tracer
+ - Adding tracepoints to a rails program
 
 - Diagrams:
  - State diagram of ruby-static-tracing (SIGPROF, etc)
