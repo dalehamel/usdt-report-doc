@@ -7,4 +7,4 @@ As Production Systems Operators, we must adapt our mindset to this new paradigm.
 
 I hope you enjoy reading this report and find the content accessible. I am constantly seeking to improve my writing and communication skills, so if you have suggestions please give me the gift of feedback on any suggestions to help improve accessibility and clarity.
 
--Dale Hamel
+-Dale Hamel [@dalehamel]
