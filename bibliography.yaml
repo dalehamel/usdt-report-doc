@@ -266,3 +266,15 @@ references:
   - given: Derek
     family: Stride
   url: https://github.com/DerekStride
+- id: sirupsen
+  title: Simon Hørup Eskildsen
+  author:
+  - given: Simon
+    family: Eskildsen
+  url: https://sirupsen.com/
+- id: csfrancis
+  title: Scott Francis Github
+  author:
+  - given: Scott
+    family: Francis
+  url: https://github.com/csfrancis

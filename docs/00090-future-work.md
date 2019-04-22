@@ -1,5 +1,13 @@
 # Future Work
 
+## More tracers for ruby-static-tracing
+
+We'd like to see more tracers in `ruby-static-tracing`, and hopefully user-contributed ones as well.
+
+There is potential for exploration of other aspects of ruby internals through USDT probes as well, such as `ObjectSpace` insights.
+
+Through parsing headers, you may be able to use `ruby-static-tracing` to augment distributed traces, if you can hook up to the right span.
+
 ## Kernel vs userspace buffering
 
 It may not end up being an issue, but if probes are enabled (and fired!) persistently and frequently, the cost of the `int3` trap overhead may become significant.
