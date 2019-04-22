@@ -59,7 +59,7 @@ references:
   - given: Yonghong
     family: Song
   URL: https://github.com/yonghong-song
-- id: bgreg-usdt-ftrace
+- id: bgregg-usdt-ftrace
   title: Hacking Linux USDT with ftrace
   author:
   - given: Brendan
@@ -278,3 +278,18 @@ references:
   - given: Scott
     family: Francis
   url: https://github.com/csfrancis
+- id: appdex
+  title: AppDex Wikipedia entry
+  url: https://en.wikipedia.org/wiki/Apdex
+- id: dtrace-osx-manpage
+  title: Dtrace OS X manpage
+  URL: http://www.manpagez.com/man/1/dtrace/osx-10.12.6.php
+- id: bpftrace
+  title: bpftrace github repository
+  URL: https://github.com/iovisor/bpftrace
+- id: bgregg-dtrace-for-linux
+  title: bpftrace (DTrace 2.0) for Linux 2018
+  author:
+  - given: Brendan
+    family: Gregg
+  URL: http://www.brendangregg.com/blog/2018-10-08/dtrace-for-linux-2018.html

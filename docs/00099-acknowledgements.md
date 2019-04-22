@@ -21,7 +21,7 @@ Some of these may have been cited or sourced indirectly, or were helpful in my o
 
 If you'd like to learn more, check out these other resources:
 
-- Hacking Linux USDT with ftrace [@bgreg-usdt-ftrace]
+- Hacking Linux USDT with ftrace [@bgregg-usdt-ftrace]
 - USDT for reliable Userspace event tracing [@joel-fernandes-usdt-notes]
 - We just got a new super-power! Runtime USDT comes to Linux [@usdt-superpower]
 - Seeing is Believing: uprobes and int3 Instruction [@uprobes-int3-insn]

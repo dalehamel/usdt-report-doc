@@ -10,7 +10,7 @@ While USDT tracepoints are conventionally defined in C and C++ applications with
 
 In creating a tracepoint, we are calling the C code:
 
-```{.ruby include=src/ruby-static-tracing/ext/ruby-static-tracing/linux/tracepoint.c startLine=13 endLine=40}
+```{.c include=src/ruby-static-tracing/ext/ruby-static-tracing/linux/tracepoint.c startLine=13 endLine=40}
 ```
 
 You can see that the tracepoint will register a provider for itself if it hasn't happened already, allowing
@@ -18,12 +18,12 @@ for "implicit declarations" of providers on their first reference.
 
 And in firing a tracepoint, we're just wrapping the call in `libstapsdt`:
 
-```{.ruby include=src/ruby-static-tracing/ext/ruby-static-tracing/linux/tracepoint.c startLine=54 endLine=71}
+```{.c include=src/ruby-static-tracing/ext/ruby-static-tracing/linux/tracepoint.c startLine=54 endLine=71}
 ```
 
 and the same for checking if a probe is enabled:
 
-```{.ruby include=src/ruby-static-tracing/ext/ruby-static-tracing/linux/tracepoint.c startLine=81 endLine=87}
+```{.c include=src/ruby-static-tracing/ext/ruby-static-tracing/linux/tracepoint.c startLine=81 endLine=87}
 ```
 
 In general, all of the direct `provider` and `tracepoint` functions are called directly through these C-extensions, wrapping around `libstapsdt` [@libstapsdt].
