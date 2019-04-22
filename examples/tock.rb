@@ -7,9 +7,7 @@ DEBUG = ENV['DEBUG']
 t = StaticTracing::Tracepoint.new('global', 'hello_nsec', Integer, String)
 e = StaticTracing::Tracepoint.new('global', 'enabled', Integer)
 
-p = StaticTracing::Provider.fetch(t.provider)
-puts p.enable
-
+puts t.provider.enable
 
 while true do
   i = StaticTracing.nsec

@@ -4,8 +4,7 @@ require 'ruby-static-tracing'
 
 t = StaticTracing::Tracepoint.new('global', 'hello_world',
                                   Integer, String)
-p = StaticTracing::Provider.fetch(t.provider)
-p.enable
+t.provider.enable
 
 loop do
   if t.enabled?

@@ -3,8 +3,7 @@
 require 'ruby-static-tracing'
 
 t = StaticTracing::Tracepoint.new('global', 'randist', Integer)
-p = StaticTracing::Provider.fetch(t.provider)
-p.enable
+t.provider.enable
 
 r = Random.new
 
