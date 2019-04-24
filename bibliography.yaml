@@ -293,3 +293,18 @@ references:
   - given: Brendan
     family: Gregg
   URL: http://www.brendangregg.com/blog/2018-10-08/dtrace-for-linux-2018.html
+- id: railgun-overview
+  title: Current Developer Environments at Shopify
+  author:
+  - given: Julian
+    family: Nadeau
+  URL: https://devproductivity.io/shopify-developer-environments-p2/index.html
+- id: xhyve
+  title: Xhyve github repository
+  URL: https://github.com/machyve/xhyve/blob/master/README.md
+- id: hyperkit
+  title: Hyperkit github repository
+  URL: https://github.com/moby/hyperkit
+- id: linuxkit
+  title: Linuxkit github repository
+  URL: https://github.com/linuxkit/linuxkit
