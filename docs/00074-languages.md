@@ -6,11 +6,17 @@ We will implement the same `hello-word` style of probe of each of them, and expl
 
 ## Ruby wrapper (featured elsewhere)
 
-Above `ruby-static-tracing`[@ruby-static-tracing] is featured more and examined heavily featured than other language runtimes, to illustrate the approach of adding `libstapsdt` to a dynamic runtime. Most of these same concepts apply to other languages. For example, the Rails usage concept of tracers may be portable to Django. In the same way that `ruby-static-tracing` offers an abstraction above tracepoints, other runtimes could take similar approaches.
+Above `ruby-static-tracing`[@ruby-static-tracing] is featured more and examined heavily featured than other language runtimes,
+to illustrate the approach of adding `libstapsdt` to a dynamic runtime. Most of these same concepts apply to other languages.
 
-Ruby won't be repeated here, and it is the author's [@dalehamel] bias and ignorance that Ruby is featured more heavily throughout the rest of the report.
+For example, the Rails usage concept of tracers may be portable to Django. In the same way that `ruby-static-tracing` offers
+an abstraction above tracepoints, other runtimes could take similar approaches.
 
-If you have examples of more detailed uses of each of USDT tracepoints in any other languages missing here, please submit a pull request.
+Ruby won't be repeated here, and it is the author's [@dalehamel] bias and ignorance that Ruby is featured more
+heavily throughout the rest of the report.
+
+If you have examples of more detailed uses of each of USDT tracepoints in any other languages missing here,
+please submit a pull request.
 
 ## Python wrapper
 

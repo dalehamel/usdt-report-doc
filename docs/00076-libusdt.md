@@ -1,6 +1,5 @@
 # libusdt
 
-
 `ruby-static-tracing` [@ruby-static-tracing] also wraps `libusdt` for Darwin / OSX support.
 
 libusdt is the provider used for dtrace probes and many of the examples powering the libraries on [@awesome-dtrace]

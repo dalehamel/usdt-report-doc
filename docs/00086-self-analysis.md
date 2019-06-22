@@ -22,8 +22,10 @@ Attaching 2 probes...
 3263
 ```
 
-These are nanosecond values, which correspond to values between 0.005381 and 0.011853 ms. So, getting the before and after time adds on the order of about one hundredth of a millisecond of time spend in the thread.
+These are nanosecond values, which correspond to values between 0.005381 and 0.011853 ms. So, getting the before and after
+time adds on the order of about one hundredth of a millisecond of time spend in the thread.
 
-This means that it would take about one hundred probed methods to add one millisecond to a service an application request. If requests are close to 100ms to begin with, this should make the overhead of tracing nearly negligible.
+This means that it would take about one hundred probed methods to add one millisecond to a service an application request.
+If requests are close to 100ms to begin with, this should make the overhead of tracing nearly negligible.
 
 we must also measure the speed of checking if a probe is enabled to get the full picture, as well as any other in-line logic that is performed.

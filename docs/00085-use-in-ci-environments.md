@@ -2,11 +2,13 @@
 
 // FIXME fill this out more
 
-To use `bpftrace` and USDT in a linux CI environment, it will need to run as a Privileged container, or a container with near-root privileges.
+To use `bpftrace` and USDT in a linux CI environment, it will need to run as a Privileged container, or a
+container with near-root privileges.
 
 This can be managed more safely if the `bpftrace` container is scoped back as much as possible.
 
-One possible implementation would be to set up a bpftrace hook-points into the CI script, where bpftrace would be called to check output of a particular probe.
+One possible implementation would be to set up a bpftrace hook-points into the CI script, where bpftrace would be
+called to check output of a particular probe.
 
 This would allow for sanity checking without the need for prints littered about.
 
