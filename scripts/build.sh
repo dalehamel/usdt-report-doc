@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir -p output
-gem i bundler -v 1.17.3 || true
+gem install bundler -v 1.17.3 || true
 bundle install
 bundle exec rake report:init
 bundle exec rake report:publish
