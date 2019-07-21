@@ -4,8 +4,8 @@ language: generic
 before_install:
  - bundle exec rake docker:run
 script:
- - CI=true bundle exec rake docker:test
- - CI=true bundle exec rake docker:publish
+- docker run -v $(pwd):/app --name doc-builder -d quay.io/dalehamel/usdt-report-doc /bin/sh -c 'sleep infinity'
+- docker exec doc-builder /app/scripts/build.sh CI
 
 env:
   matrix:
