@@ -1,8 +1,7 @@
 services:
   - docker
-language: ruby
+language: generic
 before_install:
- - bundle install
  - bundle exec rake docker:run
 script:
  - CI=true bundle exec rake docker:test
