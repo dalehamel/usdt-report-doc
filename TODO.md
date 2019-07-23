@@ -1,3 +1,4 @@
+- Update docs to compare usage with ruby's built-in method tracing
 - Use png files for histogram images
 - Check for wide-line code references that look bad in PDF
 - More attributions / references passes
