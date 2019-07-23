@@ -53,3 +53,5 @@ Ruby's tracing API is an "all or nothing" approach, affecting the execution of e
 data is collected at execution time when a tracing breakpoint instruction is executed.
 
 * rotoscope [@rotoscope-github]
+
+Update: As of Ruby 2.6, it is now possible to do this thanks to [@ruby-tracing-feature-15289]! You can see the official docs [@ruby-2-6-tracing-docs] for more details, but it's currently a bit light as it's a pretty new API.
