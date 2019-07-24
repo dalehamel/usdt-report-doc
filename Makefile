@@ -23,4 +23,8 @@ _doc/builder/run: clean
 doc/build: _doc/builder/run
 	${DOCKER} exec ${DOCKER_BUILDER} /app/scripts/pandoc-build
 
+.PHONY: quirks
+quirks:
+	scripts/tidy
+
 all: doc/build
