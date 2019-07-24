@@ -11,8 +11,11 @@ PWD ?= `pwd`
 doc/build:
 	${DOCKER} run -v ${PWD}:/app ${PANDOC_BUILDER_IMAGE} /app/scripts/pandoc-build
 
+index.html:
+	ln -sf output/doc.html index.html
+
 .PHONY: quirks
 quirks:
 	scripts/tidy
 
-all: doc/build
+all: doc/build index.html
