@@ -1,7 +1,9 @@
 ---
 title: USDT Tracing report
 author: Dale Hamel
-
+header-includes: |
+    \usepackage{fvextra}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 ---
 
 # Foreword
