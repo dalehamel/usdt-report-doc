@@ -206,7 +206,12 @@ references:
   author:
   - given: Dale
     family: Hamel
-  URL: https://github.com/dalehamel/ruby-static-tracing
+- id: bpftrace-internals-doc
+  title: Annotated bpftrace contributions
+  URL: https://blog.srvthe.net/bpftrace-internals-doc/index.html
+  author:
+  - given: Dale
+    family: Hamel
 - id: libstapsdt
   title: libstapsdt repository
   author:
@@ -289,6 +294,12 @@ references:
   URL: https://github.com/iovisor/bpftrace
 - id: bgregg-dtrace-for-linux
   title: bpftrace (DTrace 2.0) for Linux 2018
+  author:
+  - given: Brendan
+    family: Gregg
+- id: bgregg-perf-tools-book
+  title: BPF Performance Tools Linux System and Application Observability (book)
+  URL: http://www.brendangregg.com/blog/2019-07-15/bpf-performance-tools-book.html
   author:
   - given: Brendan
     family: Gregg
