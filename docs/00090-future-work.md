@@ -42,6 +42,7 @@ This would allow for stacktraces that span ruby space (via the annotated JIT ins
 While not actually related to directly USDT, ustack helpers in bpftrace and support for a ruby ustack helper would be tremendously impactful at understanding the full execution profile of ruby programs.
 
 Ruby JIT is experimental and possibly to enable with `--jit` flag in 2.6 and higher. Perhaps adding JIT notes in a conforming way early could help to increase visibility into JIT'd code?
+
 ## BTF support
 
 For introspecting userspace applications, BTF [@facebook-btf] looks like it will be useful for deeper analysis of a variety of typed-objects.

@@ -16,3 +16,6 @@
 [submodule "src/usdt-rails-sample"]
 	path = src/usdt-rails-sample
 	url = https://github.com/dalehamel/usdt-rails-sample.git
+[submodule "src/darwin-xnu"]
+	path = src/darwin-xnu
+	url = https://github.com/apple/darwin-xnu.git
