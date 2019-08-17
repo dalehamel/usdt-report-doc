@@ -157,6 +157,12 @@ references:
   - given: Aman
     family: Gupta
   URL: https://github.com/tmm1/rbtrace
+- id: tmm1
+  title: tmm1 github
+  author:
+  - given: Aman
+    family: Gupta
+  URL: https://github.com/tmm1
 - id: rotoscope-github
   title: rotoscope github repo
   author:
@@ -283,6 +289,12 @@ references:
   - given: Scott
     family: Francis
   url: https://github.com/csfrancis
+- id: adventures-rails-debugging
+  title: Adventures in Production Rails Debugging
+  author:
+  - given: Scott
+    family: Francis
+  url: https://engineering.shopify.com/blogs/engineering/adventures-in-production-rails-debugging
 - id: appdex
   title: AppDex Wikipedia entry
   url: https://en.wikipedia.org/wiki/Apdex

@@ -19,3 +19,12 @@
 [submodule "src/darwin-xnu"]
 	path = src/darwin-xnu
 	url = https://github.com/apple/darwin-xnu.git
+[submodule "src/rbtrace"]
+	path = src/rbtrace
+	url = https://github.com/tmm1/rbtrace
+[submodule "src/stackprof"]
+	path = src/stackprof
+	url = https://github.com/tmm1/stackprof
+[submodule "src/rbspy"]
+	path = src/rbspy
+	url = https://github.com/rbspy/rbspy
