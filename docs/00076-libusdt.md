@@ -4,7 +4,7 @@
 Darwin / OSX support.
 
 libusdt is the provider used for dtrace probes and many of the examples
-powering the libraries on [@awesome-dtrace]. This library suports a number of
+powering the libraries on [@awesome-dtrace]. This library supports a number of
 platforms other than Linux, including BSDs and Solaris, and really anything
 that ships with dtrace. It is worth examining dtrace, in order to see its
 impact on the design of Systemtap's implementation of the original dtrace
@@ -22,5 +22,5 @@ the program being traced.
 This format is widely used for debugging, and provides a debug faculty that is
 portable across frameworks, languages, and thanks to libstapsdt and libusdt.
 
-Many programming runtimes already have USDT support via adherance to the
+Many programming runtimes already have USDT support via adherence to the
 existing dtrace USDT api.
