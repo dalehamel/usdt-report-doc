@@ -1,0 +1,89 @@
+
+
+USDT TRACING IN RAILS
+
+
+A sample app [@usdt-rails-sample] is used to explain the usage of
+tracers from ruby-static-tracing in Rails. This functionality was
+developed during a Hackdays event, with credit to Derek Stride
+[@derekstride], Matt Valentine-House [@eightbitraptor], and Gustavo Caso
+[@gustavocaso].
+
+We can add ruby-static-tracing [@ruby-static-tracing] to our Rails
+enabling tracers in our application config:
+
+Then, for the controller we want to trace we just need to include our
+latency tracer:
+
+When we start up our app, we don’t actually see the tracepoints we’re
+looking for because they aren’t enabled by default. The following
+returns nothing:
+
+    $ bpftrace -l 'usdt:*:sample_controller:*' -p 10954
+
+But, if we enable it with SIGPROF:
+
+    kill -SIGPROF 10954
+
+We now see some output:
+
+    $ bpftrace -l 'usdt:*:sample_controller:*' -p 10954
+    usdt:/proc/10954/fd/21:sample_controller:random
+    usdt:/proc/10954/fd/21:sample_controller:welcome
+    usdt:/proc/10954/fd/21:sample_controller:slow
+    usdt:/proc/10954/fd/21:sample_controller:all
+
+So we’ll attach to each of these, and print a histogram of the latency
+for each:
+
+    $ bpftrace -e 'usdt::sample_controller:*
+                   { @[str(arg0)] = lhist(arg1/1000000, 0, 2000, 100); }' -p 10954
+    Attaching 4 probes...
+
+While the bpftrace is running, we’ll send some work to our sample app.
+We’ll fire up a script [@wrk-http-benchmark] to generate some traffic
+using wrk to each of the paths on this controller:
+
+Once our traffic generation script exits, we’ll interrupt bpftrace from
+earlier to signal it to print and summarize the data it collected:
+
+
+    @[all]:
+    [100, 200)            18 |@@@@@@@@@@@@@@@@@                                   |
+    [200, 300)            54 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
+    [300, 400)             1 |                                                    |
+
+    @[welcome]:
+    [0, 100)              73 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
+
+    @[random]:
+    [0, 100)               4 |@@@@@@@@@@@@@@@@                                    |
+    [100, 200)            11 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        |
+    [200, 300)            10 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            |
+    [300, 400)             5 |@@@@@@@@@@@@@@@@@@@@                                |
+    [400, 500)             8 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                    |
+    [500, 600)             9 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                |
+    [600, 700)             8 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                    |
+    [700, 800)            13 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
+    [800, 900)             5 |@@@@@@@@@@@@@@@@@@@@                                |
+    [900, 1000)            1 |@@@@                                                |
+
+    @[slow]:
+    [500, 600)             8 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                  |
+    [600, 700)            12 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
+    [700, 800)             5 |@@@@@@@@@@@@@@@@@@@@@                               |
+    [800, 900)             8 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                  |
+    [900, 1000)           10 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         |
+    [1000, 1100)           7 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                      |
+    [1100, 1200)           6 |@@@@@@@@@@@@@@@@@@@@@@@@@@                          |
+    [1200, 1300)           6 |@@@@@@@@@@@@@@@@@@@@@@@@@@                          |
+    [1300, 1400)           3 |@@@@@@@@@@@@@                                       |
+    [1400, 1500)           6 |@@@@@@@@@@@@@@@@@@@@@@@@@@                          |
+    [1500, 1600)           1 |@@@@                                                |
+    [1600, 1700)           2 |@@@@@@@@                                            |
+
+We can see the latency distribution, and the count of each request that
+fell into each bucket in the histogram.
+
+This results line up with what wrk reports in its summary, and the
+request data that is logged by the rails console.
