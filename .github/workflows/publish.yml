@@ -11,6 +11,7 @@ jobs:
           persist-credentials: false
       - name: Run pandoc build
         run: |
+          git submodule update --init --recursive
           script -e -c "make"
           script -e -c "make quirks"
       - name: Commit generated files for pages build
