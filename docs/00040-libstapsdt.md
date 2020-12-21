@@ -1,6 +1,6 @@
 ## libstapsdt
 
-This library was written by Matheus Marchini [@mmarchini] and Willian Gaspar
+This library was written by Mary Marchini [@mmarchini] and Willian Gaspar
 [@williangaspar], and provides a means of generating elf notes in a format 
 compatible to `DTRACE` macros for generating elf notes on linux.
 

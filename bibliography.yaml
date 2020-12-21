@@ -30,9 +30,9 @@ references:
     family: Evans
   URL: https://jvns.ca/blog/2017/07/05/linux-tracing-systems/
 - id: mmarchini
-  title: Matheus Marchini's homepage
+  title: Mary Marchini's homepage
   author:
-  - given: Matheus
+  - given: Mary
     family: Marchini
   URL: https://mmarchini.me/
 - id: palmtenor
@@ -74,7 +74,7 @@ references:
 - id: usdt-superpower
   title: We just got a new super-power! Runtime USDT comes to Linux
   author:
-  - given: Matheus
+  - given: Mary
     family: Marchini
   URL: https://medium.com/sthima-insights/we-just-got-a-new-super-power-runtime-usdt-comes-to-linux-814dc47e909f
 - id: williangaspar
@@ -221,7 +221,7 @@ references:
 - id: libstapsdt
   title: libstapsdt repository
   author:
-  - given: Matheus
+  - given: Mary
     family: Marchini
   - given: Willian
     family: Gaspar
