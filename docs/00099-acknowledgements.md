@@ -6,7 +6,7 @@ This is a report is meant to summarize my own research and experiments in this a
 accessibility of tracing tools throughout the industry
 - Alastair Robertson [@ajor] for creating bpftrace, and personally for
 reviewing the PRs I've submitted and offering insightful feedback
-- Matheus Marchini [@mmarchini] for his contributions to USDT tracing and
+- Mary Marchini [@mmarchini] for his contributions to USDT tracing and
 feedback in reviews
 - Willian Gaspar [@williangaspar] for his contributions to iovisor and works
 featured here
